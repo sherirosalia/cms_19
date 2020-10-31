@@ -1,0 +1,52 @@
+-- physicians table
+-- zipcode: limit to the first 5
+
+UPDATE physician_info
+   SET physician_profile_zipcode = LEFT(physician_profile_zipcode,5);
+
+
+
+-- CREATE OWNERSHIP TABLE
+
+DROP TABLE IF EXISTS ownership;
+CREATE TABLE IF NOT EXISTS ownership (
+Change_Type VARCHAR(5),
+Physician_Profile_ID INT,
+Physician_First_Name VARCHAR(50),
+Physician_Middle_Name VARCHAR(50),
+Physician_Last_Name VARCHAR(50),
+Physician_Name_Suffix VARCHAR(10),
+Recipient_Primary_Business_Street_Address_Line1 VARCHAR(300),
+Recipient_Primary_Business_Street_Address_Line2 VARCHAR(300),
+Recipient_City VARCHAR(100),
+Recipient_State VARCHAR(50),
+Recipient_Zip_Code VARCHAR(100),
+Recipient_Country VARCHAR(100),
+Recipient_Province INT,
+Recipient_Postal_Code VARCHAR(10),
+Physician_Primary_Type VARCHAR(300),
+Physician_Specialty VARCHAR(300),
+Record_ID INT,
+Program_Year DATE,
+Total_Amount_Invested_USDollars DECIMAL,
+Value_of_Interest DECIMAL,
+Terms_of_Interest VARCHAR(100),
+Submitting_Applicable_Manufacturer_or_Applicable_GPO_Name VARCHAR(100),
+Applicable_Manufacturer_or_Applicable_GPO_Making_Payment_ID VARCHAR(100),
+Applicable_Manufacturer_or_Applicable_GPO_Making_Payment_Name VARCHAR(100),
+Applicable_Manufacturer_or_Applicable_GPO_Making_Payment_State VARCHAR(100),
+Applicable_Manufacturer_or_Applicable_GPO_Making_Payment_Country VARCHAR(100),
+Dispute_Status_for_Publication VARCHAR(50),
+Interest_Held_by_Physician_or_an_Immediate_Family_Member VARCHAR(50),
+Payment_Publication_Date VARCHAR(50)
+)
+
+
+
+-- MODIFY SOME OF THE COLUMNS 
+
+ALTER TABLE ownership
+ALTER COLUMN Program_Year TYPE VARCHAR(10);
+
+ALTER TABLE ownership
+ALTER COLUMN terms_of_interest TYPE VARCHAR(400);
